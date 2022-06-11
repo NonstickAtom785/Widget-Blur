@@ -11,13 +11,13 @@ let blur = 150
 var message
 message = "Before you start, go to your home screen and enter wiggle mode. Scroll to the empty page on the far right and take a screenshot."
 let options = ["Continue to select image","Exit to take screenshot","Update code"]
-let response = await generateAlert(message,options)
+let response = await generateAlert(message,options) - 1
 
 // Return if we need to exit.
-if (response == 1) return
+if (!response) return
 
 // Update the code.
-if (response == 2) {
+if (response + 1) {
 
   // Determine if the user is using iCloud.
   let files = FileManager.local()
